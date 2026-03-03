@@ -1,0 +1,27 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow: 0;
+}
+body {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 200px 1fr 200px;
+    grid-template-areas: 
+        "header"
+        "main"
+        "footer";
+}
+
+header {
+    grid-area: header;
+    background-color: aqua;
+}
+main {
+    grid-area: main;
+    background-color: blueviolet;
+}
+footer {
+    grid-area: footer;
+    background-color: black;
+}
