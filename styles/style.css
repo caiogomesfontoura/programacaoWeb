@@ -1,27 +1,126 @@
-html, body {
-    margin: 0;
-    padding: 0;
-    overflow: 0;
-}
-body {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 200px 1fr 200px;
-    grid-template-areas: 
-        "header"
-        "main"
-        "footer";
+:root {
+    --bg: #f3f4f6;
+    --surface: #ffffff;
+    --text: #000000;
+    --muted: #4b5563;
+    --line: #d1d5db;
+    --accent: #1f2937;
 }
 
-header {
-    grid-area: header;
-    background-color: aqua;
+* {
+    box-sizing: border-box;
 }
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.5;
+    color: var(--text);
+    background-color: var(--bg);
+}
+
+.wrapper {
+    width: min(900px, 92%);
+    margin: 0 auto;
+}
+
+.header {
+    background-color: var(--surface);
+    border-bottom: 1px solid var(--line);
+    position: sticky;
+    top: 0;
+}
+
+.header .wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 0;
+}
+
+h1,
+h2 {
+    margin: 0;
+}
+
+h1 {
+    font-size: 1.25rem;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: var(--accent);
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--muted);
+}
+
+nav a:hover,
+nav a:focus-visible {
+    color: var(--text);
+}
+
 main {
-    grid-area: main;
-    background-color: blueviolet;
+    padding: 2rem 0;
 }
-footer {
-    grid-area: footer;
-    background-color: black;
+
+.panel {
+    background-color: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+p,
+ul {
+    margin-top: 0.75rem;
+    margin-bottom: 0;
+}
+
+pre {
+    margin-top: 0.75rem;
+    margin-bottom: 0;
+    overflow-x: auto;
+    background-color: #0f172a;
+    color: #e5e7eb;
+    padding: 0.9rem;
+    border-radius: 6px;
+}
+
+.footer {
+    border-top: 1px solid var(--line);
+    background-color: var(--surface);
+}
+
+.footer .wrapper {
+    padding: 1rem 0 1.5rem;
+    color: var(--muted);
+    font-size: 0.95rem;
+}
+
+@media (max-width: 700px) {
+    .header .wrapper {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        row-gap: 0.5rem;
+    }
 }

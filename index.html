@@ -1,48 +1,75 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Desenvolvimento Web</title>
+    <meta name="description" content="Guia introdutório de programação web com HTML e CSS.">
+    <title>Guia de Programação Web</title>
     <link rel="stylesheet" href="styles/style.css">
 </head>
 
 <body>
-    <header>
-        <nav></nav>
-        <nav></nav>
-        <nav></nav>
-    </header>
-    <main>
-        <div class="intro">
-            <h1>Aprendendo Programação Web</h1>
-            <h2>Site metalinguístico ensinando programação com exemplos práticos</h2>
-            <h3>Fundamentos HTML/CSS</h3>
+    <header class="header">
+        <div class="wrapper">
+            <h1>Programação Web</h1>
+            <nav aria-label="Navegação principal">
+                <ul>
+                    <li><a href="#intro">Introdução</a></li>
+                    <li><a href="#html">HTML</a></li>
+                    <li><a href="#css">CSS</a></li>
+                    <li><a href="#recursos">Recursos</a></li>
+                </ul>
+            </nav>
         </div>
+    </header>
 
-        <p>
-            Ensinar através de metalinguagem, praticamente, conceitos fundamentais da programação
-            Web, abordando HTML, CSS e JavaScript.
-        </p>
-        <p>
-            Metalinguagem: conceitos serão explicados através do uso dos próprios conceitos.
-            Esta linha, por exemplo, é um <strong>PÁGRAFO</strong>, indicado pela <strong>TAG</strong> de abertura
-            &lt;p&gt; e fechamento
-            &lt;/p&gt;
-        </p>
-        <ul>
-            <li>Está é uma</li>
-            <li>lista</li>
-            <li>não ordenada</li>
-        </ul>
-        <ol>
-            <li>Está é uma lista ordenada</li>
-        </ol>
+    <main class="wrapper">
+        <section id="intro" class="panel">
+            <h2>Introdução</h2>
+            <p>Programação web é o processo de criar páginas e aplicações para o navegador.</p>
+            <ul>
+                <li><strong>HTML</strong>: estrutura do conteúdo.</li>
+                <li><strong>CSS</strong>: aparência e organização visual.</li>
+                <li><strong>JavaScript</strong>: comportamento e interatividade.</li>
+            </ul>
+        </section>
+
+        <section id="html" class="panel">
+            <h2>HTML</h2>
+            <p>HTML usa tags para organizar títulos, textos, listas, links e outras partes da página.</p>
+            <pre><code>&lt;h1&gt;Titulo principal&lt;/h1&gt;
+        &lt;p&gt;Paragrafo de exemplo.&lt;/p&gt;
+        &lt;a href="https://developer.mozilla.org"&gt;Ler mais&lt;/a&gt;</code></pre>
+        </section>
+
+        <section id="css" class="panel">
+            <h2>CSS</h2>
+            <p>CSS define estilo com regras simples de seletor e propriedades.</p>
+            <pre><code>body {
+            font-family: Arial, sans-serif;
+            color: #1f2937;
+        }
+
+        h1 {
+            font-size: 2rem;
+        }</code></pre>
+        </section>
+
+        <section id="recursos" class="panel">
+            <h2>Recursos</h2>
+            <ul>
+                <li><a href="https://developer.mozilla.org/pt-BR/" target="_blank" rel="noopener noreferrer">MDN Web Docs</a></li>
+                <li><a href="https://www.w3.org/" target="_blank" rel="noopener noreferrer">W3C</a></li>
+                <li><a href="https://validator.w3.org/" target="_blank" rel="noopener noreferrer">Validador HTML</a></li>
+            </ul>
+        </section>
     </main>
 
-    <footer>
-
+    <footer class="footer">
+        <div class="wrapper">
+            <p>Projeto de estudo de desenvolvimento web - 2026</p>
+        </div>
     </footer>
 </body>
 
