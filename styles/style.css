@@ -1,10 +1,10 @@
 :root {
-    --bg: #f3f4f6;
-    --surface: #ffffff;
-    --text: #000000;
-    --muted: #4b5563;
-    --line: #d1d5db;
-    --accent: #1f2937;
+    --bg: #060a13;
+    --surface: #0e1624;
+    --text: #e6edf7;
+    --muted: #a8b3c7;
+    --line: #2a3955;
+    --accent: #7dd3fc;
 }
 
 * {
@@ -96,8 +96,8 @@ pre {
     margin-top: 0.75rem;
     margin-bottom: 0;
     overflow-x: auto;
-    background-color: #0f172a;
-    color: #e5e7eb;
+    background-color: #070d1a;
+    color: #e6edf7;
     padding: 0.9rem;
     border-radius: 6px;
 }
@@ -105,6 +105,7 @@ pre {
 .footer {
     border-top: 1px solid var(--line);
     background-color: var(--surface);
+    text-align: center;
 }
 
 .footer .wrapper {
