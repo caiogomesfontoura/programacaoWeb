@@ -1,6 +1,6 @@
 :root {
-    --bg: #060a13;
-    --surface: #0e1624;
+    --bg: #070a11;
+    --surface: #171b22;
     --text: #e6edf7;
     --muted: #a8b3c7;
     --line: #2a3955;
@@ -13,6 +13,8 @@
 
 html {
     scroll-behavior: smooth;
+    font-size: 16px;
+    margin: 0;
 }
 
 body {
@@ -61,6 +63,12 @@ nav ul {
 }
 
 a {
+    text-decoration: underline;
+    color: var(--text);
+}
+
+a:hover,
+a:focus-visible {
     color: var(--accent);
 }
 
@@ -71,7 +79,7 @@ nav a {
 
 nav a:hover,
 nav a:focus-visible {
-    color: var(--text);
+    color: var(--accent);
 }
 
 main {
@@ -96,7 +104,7 @@ pre {
     margin-top: 0.75rem;
     margin-bottom: 0;
     overflow-x: auto;
-    background-color: #070d1a;
+    background-color: var(--bg);
     color: #e6edf7;
     padding: 0.9rem;
     border-radius: 6px;
@@ -112,6 +120,15 @@ pre {
     padding: 1rem 0 1.5rem;
     color: var(--muted);
     font-size: 0.95rem;
+}
+
+.footer a {
+    color: var(--muted);
+    text-decoration: underline;
+}
+
+.footer a:hover {
+    color: var(--accent);
 }
 
 @media (max-width: 700px) {
