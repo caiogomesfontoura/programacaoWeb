@@ -105,7 +105,7 @@ pre {
     margin-bottom: 0;
     overflow-x: auto;
     background-color: var(--bg);
-    color: #e6edf7;
+    color: var(--text);
     padding: 0.9rem;
     border-radius: 6px;
 }
