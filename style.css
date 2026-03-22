@@ -1,0 +1,288 @@
+/* Objetivo: centralizar tokens de tema para padronizar cores e facilitar manutenção */
+:root {
+    --bg: #070a11;
+    --surface: #171b22;
+    --text: #e6edf7;
+    --muted: #a8b3c7;
+    --line: #2a3955;
+    --accent: #7dd3fc;
+    --header-offset: 5.5rem;
+}
+
+/* Objetivo: alternar para tema claro apenas sobrescrevendo variáveis */
+html[data-theme="light"] {
+    --bg: #f8f9fa;
+    --surface: #ffffff;
+    --text: #1f2937;
+    --muted: #6b7280;
+    --line: #e5e7eb;
+    --accent: #0ea5e9;
+}
+
+/* Objetivo: aplicar reset básico para previsibilidade de layout */
+* {
+    box-sizing: border-box;
+}
+
+/* Objetivo: definir comportamentos globais da página */
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+    margin: 0;
+}
+
+/* Objetivo: aplicar tipografia e cores principais via variáveis de tema */
+body {
+    margin: 0;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.5;
+    color: var(--text);
+    background-color: var(--bg);
+}
+
+/* Objetivo: limitar largura e manter leitura confortável no container central */
+.wrapper {
+    width: min(900px, 92%);
+    margin: 0 auto;
+}
+
+/* Objetivo: manter navegação e controles acessíveis com header sticky */
+.header {
+    background-color: var(--surface);
+    border-bottom: 1px solid var(--line);
+    position: sticky;
+    top: 0;
+}
+
+/* Objetivo: distribuir título, navegação e botões no cabeçalho */
+.header .wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 0;
+}
+
+/* Objetivo: exibir botão hamburger apenas no mobile */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: 1px solid var(--line);
+    color: var(--text);
+    cursor: pointer;
+    padding: 0.5rem 0.75rem;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.menu-toggle:hover {
+    background-color: var(--surface);
+    border-color: var(--accent);
+}
+
+/* Objetivo: manter navegação horizontal no desktop */
+.nav-menu {
+    display: flex;
+}
+
+/* Objetivo: usar classe de controle para abrir/fechar menu via JS */
+.nav-menu.active {
+    display: block;
+}
+
+/* Objetivo: estilizar o botão de alternância de tema */
+#themeToggle {
+    background: none;
+    border: 1px solid var(--line);
+    color: var(--text);
+    cursor: pointer;
+    padding: 0.5rem 0.75rem;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+#themeToggle:hover {
+    background-color: var(--surface);
+    border-color: var(--accent);
+}
+
+h1,
+h2 {
+    margin: 0;
+}
+
+h1 {
+    font-size: 1.25rem;
+}
+
+/* Objetivo: remover marcadores e manter espaço uniforme na navegação */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+}
+
+/* Objetivo: definir estilo base de links e destaque em foco/hover */
+a {
+    text-decoration: underline;
+    color: var(--text);
+}
+
+a:hover,
+a:focus-visible {
+    color: var(--accent);
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--muted);
+}
+
+nav a:hover,
+nav a:focus-visible {
+    color: var(--accent);
+}
+
+/* Objetivo: definir espaçamento do conteúdo principal */
+main {
+    padding: 2rem 0;
+}
+
+/* Objetivo: separar seções com cartões visuais */
+.panel {
+    background-color: var(--surface);
+    border-radius: 8px;
+    padding: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+/* Objetivo: evitar que o header sticky esconda títulos em navegação por âncora */
+section[id] {
+    scroll-margin-top: var(--header-offset);
+}
+
+/* Objetivo: manter ritmo vertical padrão para texto e listas */
+p,
+ul {
+    margin-top: 0.75rem;
+    margin-bottom: 0;
+}
+
+/* Objetivo: melhorar leitura de código com contraste e scroll horizontal */
+pre {
+    margin-top: 0.75rem;
+    margin-bottom: 0;
+    overflow-x: auto;
+    background-color: var(--bg);
+    color: var(--text);
+    padding: 0.9rem;
+    border-radius: 6px;
+}
+
+/* Objetivo: separar visualmente o rodapé do conteúdo */
+.footer {
+    border-top: 1px solid var(--line);
+    background-color: var(--surface);
+    text-align: center;
+}
+
+.footer .wrapper {
+    padding: 1rem 0 1.5rem;
+    color: var(--muted);
+    font-size: 0.95rem;
+}
+
+.footer a {
+    color: var(--muted);
+    text-decoration: underline;
+}
+
+/* Objetivo: ilustrar Flexbox com exemplo didático na seção de layout */
+.example-flex {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
+
+.example-flex div {
+    flex: 1;
+    min-width: 150px;
+    padding: 1rem;
+    background-color: var(--bg);
+    border: 1px dashed var(--accent);
+    border-radius: 6px;
+    text-align: center;
+    color: var(--accent);
+    font-weight: bold;
+}
+
+/* Objetivo: ilustrar CSS Grid com exemplo didático na seção de layout */
+.example-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.example-grid div {
+    padding: 1rem;
+    background-color: var(--bg);
+    border: 1px dashed var(--accent);
+    border-radius: 6px;
+    text-align: center;
+    color: var(--accent);
+    font-weight: bold;
+}
+
+.footer a:hover {
+    color: var(--accent);
+}
+
+/* Objetivo: adaptar navegação no mobile com hamburger e painel dropdown */
+@media (max-width: 700px) {
+    .header .wrapper {
+        position: relative;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        padding: 1rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        flex-direction: column;
+    }
+
+    .nav-menu.active {
+        display: flex;
+    }
+
+    .nav-menu ul {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .nav-menu a {
+        display: block;
+        padding: 0.5rem 0;
+    }
+
+    /* Objetivo: adaptar grid para 2 colunas em telas menores */
+    .example-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

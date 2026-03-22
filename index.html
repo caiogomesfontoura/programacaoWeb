@@ -2,28 +2,39 @@
 <html lang="pt-BR">
 
 <head>
+    <!-- Objetivo: definir metadados para compatibilidade, responsividade e SEO inicial -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Guia introdutório de programação web com HTML e CSS.">
     <title>Guia de Programação Web</title>
-    <link rel="stylesheet" href="styles/style.css">
+    <!-- Objetivo: carregar CSS e JS separados para manter responsabilidades claras -->
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 
 <body>
+    <!-- Objetivo: manter navegação e controles globais sempre acessíveis -->
     <header class="header">
         <div class="wrapper">
             <h1>Programação Web</h1>
-            <nav aria-label="Navegação principal">
+            <!-- Objetivo: oferecer acesso ao menu em telas menores -->
+            <button id="menuToggle" class="menu-toggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+            <!-- Objetivo: permitir navegação rápida por âncoras entre seções -->
+            <nav id="mainNav" aria-label="Navegação principal" class="nav-menu">
                 <ul>
                     <li><a href="#intro">Introdução</a></li>
                     <li><a href="#html">HTML</a></li>
                     <li><a href="#css">CSS</a></li>
+                    <li><a href="#layout">Layout</a></li>
                     <li><a href="#recursos">Recursos</a></li>
                 </ul>
             </nav>
+            <!-- Objetivo: permitir alternância de tema para conforto visual -->
+            <button id="themeToggle" aria-label="Alternar tema" title="Alternar tema claro/escuro">🌙</button>
         </div>
     </header>
 
+    <!-- Objetivo: organizar o conteúdo principal em seções temáticas -->
     <main class="wrapper">
         <section id="intro" class="panel">
             <h2>Introdução</h2>
@@ -60,6 +71,46 @@ h1 {
             </pre>
         </section>
 
+        <section id="layout" class="panel">
+            <h2>Layout: Flexbox e Grid</h2>
+            <p><strong>Flexbox</strong> é ideal para layouts de uma dimensão (linhas ou colunas):</p>
+            <pre>
+.container {
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+    align-items: center;
+}
+            </pre>
+            
+            <p style="margin-top: 1rem"><strong>CSS Grid</strong> é perfeito para layouts bidimensionais:</p>
+            <pre>
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+            </pre>
+
+            <!-- Objetivo: reforçar visualmente o comportamento do Flexbox -->
+            <div class="example-flex">
+                <div>Caixa Flex 1</div>
+                <div>Caixa Flex 2</div>
+                <div>Caixa Flex 3</div>
+            </div>
+
+            <!-- Objetivo: demonstrar CSS Grid com exemplo visual prático -->
+            <div class="example-grid">
+                <div>Caixa Grid 1</div>
+                <div>Caixa Grid 2</div>
+                <div>Caixa Grid 3</div>
+                <div>Caixa Grid 4</div>
+                <div>Caixa Grid 5</div>
+                <div>Caixa Grid 6</div>
+            </div>
+        </section>
+
+        <!-- Objetivo: oferecer referências externas para aprofundamento -->
         <section id="recursos" class="panel">
             <h2>Recursos</h2>
             <ul>
@@ -70,6 +121,7 @@ h1 {
         </section>
     </main>
 
+    <!-- Objetivo: exibir identificação do projeto e acesso ao repositório -->
     <footer class="footer">
         <div class="wrapper">
             <p>2026</p>
