@@ -2,25 +2,23 @@
 <html lang="pt-BR">
 
 <head>
-    <!-- Objetivo: definir metadados para compatibilidade, responsividade e SEO inicial -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Guia introdutório de programação web com HTML e CSS.">
     <title>Guia de Programação Web</title>
-    <!-- Objetivo: carregar CSS e JS separados para manter responsabilidades claras -->
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
 </head>
 
 <body>
-    <!-- Objetivo: manter navegação e controles globais sempre acessíveis -->
-    <header class="header">
-        <div class="wrapper">
+    <a class="atalho-conteudo" href="#conteudoPrincipal">Pular para o conteúdo principal</a>
+    <p id="statusAcessibilidade" class="apenas-leitor-tela" aria-live="polite" aria-atomic="true"></p>
+
+    <header class="cabecalho">
+        <div class="container-pagina">
             <h1>Programação Web</h1>
-            <!-- Objetivo: oferecer acesso ao menu em telas menores -->
-            <button id="menuToggle" class="menu-toggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
-            <!-- Objetivo: permitir navegação rápida por âncoras entre seções -->
-            <nav id="mainNav" aria-label="Navegação principal" class="nav-menu">
+            <button id="botaoMenu" class="botao-menu" aria-label="Abrir menu" aria-expanded="false">☰</button>
+            <nav id="menuPrincipal" aria-label="Navegação principal" class="menu-navegacao">
                 <ul>
                     <li><a href="#intro">Introdução</a></li>
                     <li><a href="#html">HTML</a></li>
@@ -29,14 +27,42 @@
                     <li><a href="#recursos">Recursos</a></li>
                 </ul>
             </nav>
-            <!-- Objetivo: permitir alternância de tema para conforto visual -->
-            <button id="themeToggle" aria-label="Alternar tema" title="Alternar tema claro/escuro">🌙</button>
+            <div class="controles-cabecalho" role="group" aria-label="Controles de acessibilidade e tema">
+                <button id="botaoTema" aria-label="Alternar tema" title="Alternar tema claro/escuro">🌙</button>
+                <button id="botaoAcessibilidade" aria-label="Abrir painel de acessibilidade" aria-expanded="false" aria-controls="painelAcessibilidade">Acessibilidade</button>
+            </div>
+        </div>
+
+        <div id="painelAcessibilidade" class="container-pagina painel-acessibilidade" hidden>
+            <h2 id="tituloPainelAcessibilidade">Preferências de acessibilidade</h2>
+            <div class="grade-acessibilidade" role="group" aria-labelledby="tituloPainelAcessibilidade">
+                <label>
+                    <input type="checkbox" id="opcaoAltoContraste">
+                    Alto contraste
+                </label>
+                <label>
+                    <input type="checkbox" id="opcaoReduzirMovimento">
+                    Reduzir movimento
+                </label>
+                <label>
+                    <input type="checkbox" id="opcaoTextoMaior">
+                    Texto maior
+                </label>
+                <label>
+                    <input type="checkbox" id="opcaoFocoReforcado">
+                    Foco reforçado
+                </label>
+                <label>
+                    <input type="checkbox" id="opcaoLinksSublinhados">
+                    Destacar links com sublinhado
+                </label>
+            </div>
+            <button id="botaoRestaurarAcessibilidade" class="botao-restaurar-acessibilidade">Restaurar padrões</button>
         </div>
     </header>
 
-    <!-- Objetivo: organizar o conteúdo principal em seções temáticas -->
-    <main class="wrapper">
-        <section id="intro" class="panel">
+    <main id="conteudoPrincipal" class="container-pagina" tabindex="-1">
+        <section id="intro" class="secao-cartao">
             <h2>Introdução</h2>
             <p>Programação web é o processo de criar páginas e aplicações para o navegador.</p>
             <ul>
@@ -46,7 +72,7 @@
             </ul>
         </section>
 
-        <section id="html" class="panel">
+        <section id="html" class="secao-cartao">
             <h2>HTML</h2>
             <p>HTML usa tags para organizar títulos, textos, listas, links e outras partes da página.</p>
             <pre>
@@ -56,7 +82,7 @@
             </pre>
         </section>
 
-        <section id="css" class="panel">
+        <section id="css" class="secao-cartao">
             <h2>CSS</h2>
             <p>CSS define estilo com regras simples de seletor e propriedades.</p>
             <pre>
@@ -71,7 +97,7 @@ h1 {
             </pre>
         </section>
 
-        <section id="layout" class="panel">
+        <section id="layout" class="secao-cartao">
             <h2>Layout: Flexbox e Grid</h2>
             <p><strong>Flexbox</strong> é ideal para layouts de uma dimensão (linhas ou colunas):</p>
             <pre>
@@ -83,7 +109,7 @@ h1 {
 }
             </pre>
             
-            <p style="margin-top: 1rem"><strong>CSS Grid</strong> é perfeito para layouts bidimensionais:</p>
+            <p class="espaco-topo"><strong>CSS Grid</strong> é perfeito para layouts bidimensionais:</p>
             <pre>
 .grid {
     display: grid;
@@ -92,15 +118,13 @@ h1 {
 }
             </pre>
 
-            <!-- Objetivo: reforçar visualmente o comportamento do Flexbox -->
-            <div class="example-flex">
+            <div class="exemplo-flex">
                 <div>Caixa Flex 1</div>
                 <div>Caixa Flex 2</div>
                 <div>Caixa Flex 3</div>
             </div>
 
-            <!-- Objetivo: demonstrar CSS Grid com exemplo visual prático -->
-            <div class="example-grid">
+            <div class="exemplo-grid">
                 <div>Caixa Grid 1</div>
                 <div>Caixa Grid 2</div>
                 <div>Caixa Grid 3</div>
@@ -110,22 +134,20 @@ h1 {
             </div>
         </section>
 
-        <!-- Objetivo: oferecer referências externas para aprofundamento -->
-        <section id="recursos" class="panel">
+        <section id="recursos" class="secao-cartao">
             <h2>Recursos</h2>
             <ul>
-                <li><a href="https://developer.mozilla.org/pt-BR/" target="_blank" rel="noopener noreferrer">MDN Web Docs</a></li>
-                <li><a href="https://www.w3.org/" target="_blank" rel="noopener noreferrer">W3C</a></li>
-                <li><a href="https://www.w3schools.com/" target="_blank" rel="noopener noreferrer">W3Schools</a></li>
+                <li><a href="https://developer.mozilla.org/pt-BR/" target="_blank" rel="noopener noreferrer">MDN Web Docs <span class="apenas-leitor-tela">(abre em nova aba)</span></a></li>
+                <li><a href="https://www.w3.org/" target="_blank" rel="noopener noreferrer">W3C <span class="apenas-leitor-tela">(abre em nova aba)</span></a></li>
+                <li><a href="https://www.w3schools.com/" target="_blank" rel="noopener noreferrer">W3Schools <span class="apenas-leitor-tela">(abre em nova aba)</span></a></li>
             </ul>
         </section>
     </main>
 
-    <!-- Objetivo: exibir identificação do projeto e acesso ao repositório -->
-    <footer class="footer">
-        <div class="wrapper">
+    <footer class="rodape">
+        <div class="container-pagina">
             <p>2026</p>
-            <p><a href="https://github.com/caiogomesfontoura/programacaoWeb" target="_blank" rel="noopener noreferrer">Repositório GitHub</a></p>
+            <p><a href="https://github.com/caiogomesfontoura/programacaoWeb" target="_blank" rel="noopener noreferrer">Repositório GitHub <span class="apenas-leitor-tela">(abre em nova aba)</span></a></p>
         </div>
     </footer>
 </body>
