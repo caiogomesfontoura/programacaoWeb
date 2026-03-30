@@ -2,7 +2,7 @@
 
 > Um recurso educacional sobre HTML, CSS, JavaScript e desenvolvimento web moderno.
 
-Projeto desenvolvido durante as aulas da disciplina **Programação para Internet** do curso **Sistemas de Informação** da **Faculdade Multivix** (2026).
+Projeto desenvolvido durante as aulas do 5 periodo do curso **Sistemas de Informação** da **Faculdade Multivix** (2026).
 
 ## 🎯 Objetivo
 
