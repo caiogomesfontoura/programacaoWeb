@@ -109,7 +109,3 @@ Este projeto foi intencionalmente mantido simples para fins didáticos. As decis
 - [W3C](https://www.w3.org/)
 - [W3Schools](https://www.w3schools.com/)
 - [Repositório GitHub](https://github.com/caiogomesfontoura/programacaoWeb)
-
----
-
-**Desenvolvido para fins educacionais** 
