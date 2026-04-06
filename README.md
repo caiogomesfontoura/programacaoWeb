@@ -35,7 +35,6 @@ O projeto agora trata acessibilidade como parte principal da experiência, com r
 - ✅ Texto maior para melhor legibilidade
 - ✅ Foco reforçado para navegação por teclado
 - ✅ Destaque de links com sublinhado reforçado
-- ✅ Região ARIA live para anunciar mudanças importantes
 - ✅ Fechamento por teclado (Esc) e atalho Alt+A para abrir/fechar o painel
 - ✅ Compatibilidade com forced colors
 
