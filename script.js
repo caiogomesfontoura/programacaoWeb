@@ -7,6 +7,7 @@ const botaoAcessibilidade = document.getElementById('botaoAcessibilidade');
 const painelAcessibilidade = document.getElementById('painelAcessibilidade');
 const statusAcessibilidade = document.getElementById('statusAcessibilidade');
 const botaoRestaurarAcessibilidade = document.getElementById('botaoRestaurarAcessibilidade');
+const linksMenu = Array.from(menuPrincipal.querySelectorAll('a[href^="#"]'));
 
 const opcoes = {
     altoContraste: document.getElementById('opcaoAltoContraste'),
@@ -113,6 +114,83 @@ function preencherPainel(configuracao) {
     });
 }
 
+function atualizarLinkAtivo(idSecao) {
+    linksMenu.forEach((link) => {
+        link.classList.remove('link-ativo');
+        link.removeAttribute('aria-current');
+
+        if (link.getAttribute('href') === `#${idSecao}`) {
+            link.classList.add('link-ativo');
+            link.setAttribute('aria-current', 'page');
+        }
+    });
+}
+
+function iniciarMarcacaoNavegacaoAtiva() {
+    const secoesObservaveis = linksMenu
+        .map((link) => {
+            const id = link.getAttribute('href').slice(1);
+            const elemento = document.getElementById(id);
+            return elemento ? { id, elemento } : null;
+        })
+        .filter(Boolean);
+
+    if (!secoesObservaveis.length) {
+        return;
+    }
+
+    const hashAtual = window.location.hash.replace('#', '');
+    if (hashAtual) {
+        atualizarLinkAtivo(hashAtual);
+    } else {
+        atualizarLinkAtivo(secoesObservaveis[0].id);
+    }
+
+    const obterOffsetAtivacao = () => {
+        const cabecalho = document.querySelector('.cabecalho');
+        return (cabecalho ? cabecalho.offsetHeight : 0) + 24;
+    };
+
+    const atualizarPorScroll = () => {
+        const referencia = window.scrollY + obterOffsetAtivacao();
+        let idAtual = secoesObservaveis[0].id;
+
+        secoesObservaveis.forEach(({ id, elemento }) => {
+            if (referencia >= elemento.offsetTop) {
+                idAtual = id;
+            }
+        });
+
+        atualizarLinkAtivo(idAtual);
+    };
+
+    let scrollAgendado = false;
+    window.addEventListener('scroll', () => {
+        if (scrollAgendado) {
+            return;
+        }
+
+        scrollAgendado = true;
+        requestAnimationFrame(() => {
+            atualizarPorScroll();
+            scrollAgendado = false;
+        });
+    });
+
+    window.addEventListener('resize', atualizarPorScroll);
+
+    window.addEventListener('hashchange', () => {
+        const hash = window.location.hash.replace('#', '');
+        if (hash) {
+            atualizarLinkAtivo(hash);
+        } else {
+            atualizarPorScroll();
+        }
+    });
+
+    atualizarPorScroll();
+}
+
 // Estado inicial.
 const temaSalvo = storageGet(CHAVE_TEMA);
 aplicarTema(temaSalvo || (MEDIA_TEMA_SISTEMA.matches ? 'dark' : 'light'));
@@ -131,6 +209,8 @@ botaoMenu.addEventListener('click', () => {
 menuPrincipal.querySelectorAll('a').forEach((link) => {
     link.addEventListener('click', fecharMenu);
 });
+
+iniciarMarcacaoNavegacaoAtiva();
 
 // Tema.
 botaoTema.addEventListener('click', () => {

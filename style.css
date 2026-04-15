@@ -1,11 +1,11 @@
 :root {
     --bg: #070a11;
     --surface: #171b22;
-    --text: #e6edf7;
+    --text: #dae0e7;
     --muted: #a8b3c7;
     --line: #2a3955;
     --accent: #7dd3fc;
-    --header-offset: 5.5rem;
+    --header-offset: 6.5rem;
     --font-size-base: 1rem;
 }
 
@@ -71,7 +71,7 @@ body {
 }
 
 .container-pagina {
-    width: min(900px, 92%);
+    width: min(1200px, 94%);
     margin: 0 auto;
 }
 
@@ -80,14 +80,25 @@ body {
     border-bottom: 1px solid var(--line);
     position: sticky;
     top: 0;
+    z-index: 20;
 }
 
-.cabecalho .container-pagina {
-    display: flex;
-    justify-content: space-between;
+.cabecalho > .container-pagina {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    grid-template-areas: "titulo controles menu-btn";
     align-items: center;
-    gap: 1rem;
-    padding: 1rem 0;
+    gap: 0.8rem;
+    padding: 0.8rem 0;
+}
+
+.cabecalho h1 {
+    grid-area: titulo;
+    line-height: 1.2;
+}
+
+.cabecalho .controles-cabecalho {
+    grid-area: controles;
 }
 
 .controles-cabecalho {
@@ -112,6 +123,7 @@ body {
 
 .botao-menu {
     display: none;
+    grid-area: menu-btn;
 }
 
 .botao-menu:hover,
@@ -122,8 +134,29 @@ body {
     border-color: var(--accent);
 }
 
+.layout-curso {
+    display: grid;
+    grid-template-columns: minmax(220px, 260px) minmax(0, 1fr);
+    gap: 1rem;
+    align-items: start;
+    padding: 1.2rem 0 2rem;
+}
+
+.sidebar-cursos {
+    position: sticky;
+    top: calc(var(--header-offset) + 0.35rem);
+}
+
+.titulo-sidebar {
+    font-size: 1rem;
+    margin: 0 0 0.75rem;
+}
+
 .menu-navegacao {
-    display: flex;
+    border: 1px solid var(--line);
+    background: var(--surface);
+    border-radius: 10px;
+    padding: 0.9rem;
 }
 
 .menu-navegacao.aberto {
@@ -170,15 +203,34 @@ h1 {
 
 nav ul {
     list-style: none;
-    display: flex;
-    gap: 1rem;
+    display: grid;
+    gap: 0.45rem;
     margin: 0;
     padding: 0;
+}
+
+nav li {
+    margin: 0;
+}
+
+nav a {
+    display: block;
+    line-height: 1.2;
+    padding: 0.5rem 0.6rem;
+    border-radius: 6px;
+    border: 1px solid var(--line);
+    background: color-mix(in srgb, var(--surface) 90%, var(--line));
+    font-size: 0.92rem;
 }
 
 a {
     text-decoration: underline;
     color: var(--text);
+}
+
+h3 {
+    margin: 1rem 0 0;
+    font-size: 1.05rem;
 }
 
 a:hover,
@@ -201,8 +253,22 @@ nav a {
     color: var(--muted);
 }
 
-main {
-    padding: 2rem 0;
+nav a:hover,
+nav a:focus-visible {
+    border-color: var(--accent);
+    background: color-mix(in srgb, var(--surface) 65%, var(--accent) 12%);
+}
+
+nav a[aria-current="page"],
+nav a.link-ativo {
+    color: var(--text);
+    border-color: var(--accent);
+    background: color-mix(in srgb, var(--surface) 55%, var(--accent) 22%);
+    font-weight: 600;
+}
+
+.conteudo-principal {
+    min-width: 0;
 }
 
 .secao-cartao {
@@ -218,9 +284,19 @@ section[id] {
 
 p,
 ul,
+ol,
 pre {
     margin-top: 0.75rem;
     margin-bottom: 0;
+}
+
+ol,
+ul {
+    padding-left: 1.2rem;
+}
+
+li + li {
+    margin-top: 0.35rem;
 }
 
 .espaco-topo {
@@ -342,41 +418,38 @@ html[data-motion="reduced"] *::after {
     }
 }
 
-@media (max-width: 700px) {
-    .cabecalho .container-pagina {
-        position: relative;
+@media (max-width: 900px) {
+    :root {
+        --header-offset: 6.2rem;
+    }
+
+    .layout-curso {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+        padding-top: 1rem;
+    }
+
+    .sidebar-cursos {
+        position: static;
+    }
+
+    .titulo-sidebar {
+        margin-bottom: 0.5rem;
     }
 
     .botao-menu {
-        display: block;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .menu-navegacao {
         display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background-color: var(--surface);
-        border: 1px solid var(--line);
-        border-radius: 6px;
-        padding: 1rem;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        flex-direction: column;
+        padding: 0.8rem;
     }
 
     .menu-navegacao.aberto {
-        display: flex;
-    }
-
-    .menu-navegacao ul {
-        flex-direction: column;
-        gap: 0.5rem;
-    }
-
-    .menu-navegacao a {
         display: block;
-        padding: 0.5rem 0;
     }
 
     .grade-acessibilidade,

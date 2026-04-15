@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Guia introdutório de programação web com HTML e CSS.">
-    <title>Guia de Programação Web</title>
+    <meta name="description" content="Mini curso de front-end com foco em acessibilidade: WCAG, HTML semântico, CSS inclusivo, JavaScript acessível e auditoria do próprio site.">
+    <title>Mini Curso Front-end Acessível</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
 </head>
@@ -16,17 +16,8 @@
 
     <header class="cabecalho">
         <div class="container-pagina">
-            <h1>Programação Web</h1>
-            <button id="botaoMenu" class="botao-menu" aria-label="Abrir menu" aria-expanded="false">☰</button>
-            <nav id="menuPrincipal" aria-label="Navegação principal" class="menu-navegacao">
-                <ul>
-                    <li><a href="#intro">Introdução</a></li>
-                    <li><a href="#html">HTML</a></li>
-                    <li><a href="#css">CSS</a></li>
-                    <li><a href="#layout">Layout</a></li>
-                    <li><a href="#recursos">Recursos</a></li>
-                </ul>
-            </nav>
+            <h1>Front-end Acessível</h1>
+            <button id="botaoMenu" class="botao-menu" aria-label="Abrir navegação lateral" aria-controls="menuPrincipal" aria-expanded="false">☰</button>
             <div class="controles-cabecalho" role="group" aria-label="Controles de acessibilidade e tema">
                 <button id="botaoTema" aria-label="Alternar tema" title="Alternar tema claro/escuro">🌙</button>
                 <button id="botaoAcessibilidade" aria-label="Abrir painel de acessibilidade" aria-expanded="false" aria-controls="painelAcessibilidade">Acessibilidade</button>
@@ -61,88 +52,260 @@
         </div>
     </header>
 
-    <main id="conteudoPrincipal" class="container-pagina" tabindex="-1">
+    <div class="layout-curso container-pagina">
+        <aside class="sidebar-cursos">
+            <nav id="menuPrincipal" aria-label="Navegação principal" class="menu-navegacao" aria-labelledby="tituloNavegacaoCurso">
+                <h2 id="tituloNavegacaoCurso" class="titulo-sidebar">Navegação do curso</h2>
+                <ul>
+                    <li><a href="#intro">Introdução</a></li>
+                    <li><a href="#plano">Trilha</a></li>
+                    <li><a href="#fundamentos">Base A11y</a></li>
+                    <li><a href="#html">HTML Acessível</a></li>
+                    <li><a href="#css">CSS Inclusivo</a></li>
+                    <li><a href="#javascript">JS Acessível</a></li>
+                    <li><a href="#acessibilidade-detalhada">No Site</a></li>
+                    <li><a href="#projeto">Projeto</a></li>
+                    <li><a href="#exercicios">Exercícios</a></li>
+                    <li><a href="#recursos">Recursos</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main id="conteudoPrincipal" class="conteudo-principal" tabindex="-1">
         <section id="intro" class="secao-cartao">
-            <h2>Introdução</h2>
-            <p>Programação web é o processo de criar páginas e aplicações para o navegador.</p>
+            <h2>Introdução: acessibilidade primeiro</h2>
+            <p>Este mini curso coloca acessibilidade no centro do front-end development. Aqui, acessibilidade não é etapa final: ela orienta decisões de HTML, CSS, JavaScript, conteúdo e testes.</p>
+            <p>Objetivo: construir interfaces utilizáveis por pessoas com diferentes capacidades, dispositivos, contextos e preferências de navegação.</p>
             <ul>
-                <li><strong>HTML</strong>: estrutura do conteúdo.</li>
-                <li><strong>CSS</strong>: aparência e organização visual.</li>
-                <li><strong>JavaScript</strong>: comportamento e interatividade.</li>
+                <li><strong>Perceptível</strong>: informação visível, legível e com contraste adequado.</li>
+                <li><strong>Operável</strong>: tudo funciona com teclado, foco e controles claros.</li>
+                <li><strong>Compreensível</strong>: estrutura lógica, rótulos e feedback de estado.</li>
+                <li><strong>Robusto</strong>: compatível com tecnologias assistivas e navegadores.</li>
             </ul>
+        </section>
+
+        <section id="plano" class="secao-cartao">
+            <h2>Trilha de estudo com foco em acessibilidade</h2>
+            <p>Sequência sugerida para estudar em blocos de 30 a 60 minutos:</p>
+            <ol>
+                <li>Entenda os princípios da WCAG e os níveis A, AA e AAA.</li>
+                <li>Pratique HTML semântico com landmarks, títulos e formulários acessíveis.</li>
+                <li>Aplique CSS inclusivo com foco visível, contraste e redução de movimento.</li>
+                <li>Implemente JavaScript acessível com ARIA, eventos de teclado e anúncios de estado.</li>
+                <li>Faça auditoria manual e automatizada do projeto final.</li>
+            </ol>
+            <p class="espaco-topo"><strong>Dica:</strong> ao codar cada componente, pergunte: "isso funciona com teclado? está claro para leitor de tela?"</p>
+        </section>
+
+        <section id="fundamentos" class="secao-cartao">
+            <h2>Base A11y: padrões e parâmetros</h2>
+            <p>Para front-end acessível, use WCAG 2.2 como referência principal. Em projetos reais, o alvo mais comum é <strong>nível AA</strong>.</p>
+            <h3>Princípios POUR</h3>
+            <ul>
+                <li><strong>Perceptível</strong>: conteúdo precisa ser percebido por diferentes sentidos.</li>
+                <li><strong>Operável</strong>: navegação por teclado e foco consistente.</li>
+                <li><strong>Compreensível</strong>: linguagem clara, previsibilidade e mensagens de erro úteis.</li>
+                <li><strong>Robusto</strong>: HTML válido, semântica adequada e suporte a tecnologias assistivas.</li>
+            </ul>
+            <h3>Parâmetros práticos para aplicar no dia a dia</h3>
+            <ol>
+                <li>Contraste de cor adequado para texto e elementos interativos.</li>
+                <li>Estrutura semântica com ordem de títulos e landmarks.</li>
+                <li>Todos os controles alcançáveis por teclado.</li>
+                <li>Estados claros: foco, hover, erro, sucesso e carregamento.</li>
+                <li>Preferências de usuário respeitadas, como redução de movimento.</li>
+            </ol>
+            <pre>
+Meta recomendada: WCAG 2.2 AA
+Checklist mínimo: teclado + foco + contraste + semântica + feedback
+            </pre>
         </section>
 
         <section id="html" class="secao-cartao">
-            <h2>HTML</h2>
-            <p>HTML usa tags para organizar títulos, textos, listas, links e outras partes da página.</p>
+            <h2>Módulo 1: HTML Acessível</h2>
+            <p>Use HTML semântico antes de pensar em ARIA. A regra é: <strong>elemento nativo correto primeiro</strong>, ARIA como complemento quando necessário.</p>
+            <h3>Estrutura semântica essencial</h3>
+            <ul>
+                <li><strong>&lt;header&gt;, &lt;nav&gt;, &lt;main&gt;, &lt;footer&gt;</strong> para landmarks de navegação.</li>
+                <li><strong>&lt;h1&gt;...&lt;h6&gt;</strong> em ordem lógica, sem pular níveis sem necessidade.</li>
+                <li><strong>&lt;button&gt;</strong> para ações e <strong>&lt;a&gt;</strong> para navegação.</li>
+                <li><strong>&lt;label&gt;</strong> associado a cada campo de formulário.</li>
+            </ul>
+            <h3>Exemplo correto de botão e link</h3>
             <pre>
-&lt;h1&gt;Titulo principal&lt;/h1&gt;
-&lt;p&gt;Paragrafo de exemplo.&lt;/p&gt;
-&lt;a href="https://developer.mozilla.org"&gt;Ler mais&lt;/a&gt;
+&lt;button type="button"&gt;Salvar&lt;/button&gt;
+&lt;a href="/perfil"&gt;Ir para perfil&lt;/a&gt;
             </pre>
+            <h3>Exemplo acessível de formulário</h3>
+            <pre>
+&lt;form&gt;
+    &lt;label for="email"&gt;E-mail&lt;/label&gt;
+    &lt;input id="email" type="email" required&gt;
+    &lt;p id="ajuda-email"&gt;Use seu e-mail principal.&lt;/p&gt;
+    &lt;input aria-describedby="ajuda-email" id="email2" type="email"&gt;
+    &lt;button type="submit"&gt;Enviar&lt;/button&gt;
+&lt;/form&gt;
+            </pre>
+            <p class="espaco-topo"><strong>Checklist HTML:</strong> idioma da página definido, skip link, landmarks, rótulos, textos alternativos e nomes acessíveis para botões.</p>
         </section>
 
         <section id="css" class="secao-cartao">
-            <h2>CSS</h2>
-            <p>CSS define estilo com regras simples de seletor e propriedades.</p>
+            <h2>Módulo 2: CSS Inclusivo</h2>
+            <p>CSS acessível garante legibilidade e previsibilidade visual para mais pessoas, incluindo baixa visão, daltonismo e sensibilidade a movimento.</p>
+            <h3>Boas práticas essenciais</h3>
+            <ul>
+                <li>Contraste adequado entre texto e fundo.</li>
+                <li>Indicador de foco sempre visível com <code>:focus-visible</code>.</li>
+                <li>Evitar depender apenas de cor para transmitir informação.</li>
+                <li>Suporte a <code>prefers-reduced-motion</code> para reduzir animações.</li>
+            </ul>
+            <h3>Exemplo com foco visível e contraste</h3>
             <pre>
-body {
-    font-family: Arial, sans-serif;
-    color: #1f2937;
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid #0ea5e9;
+    outline-offset: 3px;
 }
 
-h1 {
-    font-size: 2rem;
+body {
+    color: #1f2937;
+    background: #ffffff;
+}
+            </pre>
+            <h3>Exemplo de redução de movimento</h3>
+            <pre>
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.001ms !important;
+        transition-duration: 0.001ms !important;
+    }
 }
             </pre>
         </section>
 
-        <section id="layout" class="secao-cartao">
-            <h2>Layout: Flexbox e Grid</h2>
-            <p><strong>Flexbox</strong> é ideal para layouts de uma dimensão (linhas ou colunas):</p>
+        <section id="javascript" class="secao-cartao">
+            <h2>Módulo 3: JavaScript Acessível</h2>
+            <p>No JavaScript, o foco é manter estados acessíveis: abrir e fechar componentes com semântica correta, anunciar mudanças e garantir suporte total a teclado.</p>
+            <h3>Padrões recomendados</h3>
+            <ul>
+                <li>Atualizar <code>aria-expanded</code> em menus e painéis colapsáveis.</li>
+                <li>Mover foco para o próximo elemento relevante após uma ação.</li>
+                <li>Anunciar mudanças importantes em região com <code>aria-live</code>.</li>
+                <li>Fechar painéis com tecla <code>Escape</code>.</li>
+            </ul>
+            <h3>Exemplo: botão com estado ARIA</h3>
             <pre>
-.container {
-    display: flex;
-    gap: 1rem;
-    justify-content: space-between;
-    align-items: center;
-}
+const botao = document.getElementById('menuBtn');
+const menu = document.getElementById('menu');
+
+botao.addEventListener('click', () =&gt; {
+    const aberto = menu.classList.toggle('aberto');
+    botao.setAttribute('aria-expanded', String(aberto));
+});
             </pre>
-            
-            <p class="espaco-topo"><strong>CSS Grid</strong> é perfeito para layouts bidimensionais:</p>
+            <h3>Exemplo: anúncio de atualização</h3>
             <pre>
-.grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-}
+const status = document.getElementById('status');
+status.textContent = 'Preferências atualizadas com sucesso.';
             </pre>
+            <p class="espaco-topo">Lembrete: interatividade acessível depende de semântica, teclado e estado anunciado.</p>
+        </section>
 
-            <div class="exemplo-flex">
-                <div>Caixa Flex 1</div>
-                <div>Caixa Flex 2</div>
-                <div>Caixa Flex 3</div>
-            </div>
+        <section id="acessibilidade-detalhada" class="secao-cartao">
+            <h2>Seção detalhada: acessibilidade aplicada neste site</h2>
+            <p>A própria página do curso implementa recursos de acessibilidade em HTML, CSS e JavaScript. Abaixo está o que foi aplicado e por que cada item importa.</p>
 
-            <div class="exemplo-grid">
-                <div>Caixa Grid 1</div>
-                <div>Caixa Grid 2</div>
-                <div>Caixa Grid 3</div>
-                <div>Caixa Grid 4</div>
-                <div>Caixa Grid 5</div>
-                <div>Caixa Grid 6</div>
-            </div>
+            <h3>1. Estrutura semântica e navegação</h3>
+            <ul>
+                <li><strong>Idioma definido</strong> com <code>lang="pt-BR"</code> para pronúncia correta em leitores de tela.</li>
+                <li><strong>Landmarks</strong> com <code>header</code>, <code>nav</code>, <code>main</code> e <code>footer</code>.</li>
+                <li><strong>Skip link</strong> no topo para pular direto ao conteúdo principal.</li>
+                <li><strong>Hierarquia de títulos</strong> para navegação por headings.</li>
+            </ul>
+
+            <h3>2. Operação por teclado</h3>
+            <ul>
+                <li>Menu e painel usam botões nativos e podem ser acionados por teclado.</li>
+                <li><code>Escape</code> fecha menu e painel de acessibilidade.</li>
+                <li>Atalho <code>Alt + A</code> alterna o painel de acessibilidade.</li>
+                <li>Ao abrir o painel, o foco é movido para a primeira opção.</li>
+            </ul>
+
+            <h3>3. Estados ARIA e feedback</h3>
+            <ul>
+                <li><code>aria-expanded</code> indica se menu e painel estão abertos.</li>
+                <li><code>aria-controls</code> conecta o botão ao painel correspondente.</li>
+                <li><code>aria-live="polite"</code> anuncia mudanças de tema e preferências.</li>
+                <li>Links externos informam "abre em nova aba" para leitores de tela.</li>
+            </ul>
+
+            <h3>4. Preferências visuais e sensoriais</h3>
+            <ul>
+                <li>Alternância de tema claro e escuro.</li>
+                <li>Modo de alto contraste.</li>
+                <li>Opção de texto maior.</li>
+                <li>Foco reforçado com contorno mais espesso.</li>
+                <li>Links sublinhados para reforço visual.</li>
+                <li>Redução de movimento via sistema e configuração manual.</li>
+            </ul>
+
+            <h3>5. Persistência e consistência</h3>
+            <ul>
+                <li>Preferências são salvas no navegador para manter a experiência entre visitas.</li>
+                <li>Existe botão para restaurar padrões de acessibilidade.</li>
+            </ul>
+
+            <h3>6. Checklist de conformidade prática (nível AA)</h3>
+            <ol>
+                <li>Navegável por teclado sem bloqueios.</li>
+                <li>Foco sempre visível e com contraste.</li>
+                <li>Informações de estado disponíveis visualmente e por tecnologia assistiva.</li>
+                <li>Estrutura semântica consistente em todas as seções.</li>
+                <li>Respeito a preferências de movimento e contraste.</li>
+            </ol>
+        </section>
+
+        <section id="projeto" class="secao-cartao">
+            <h2>Projeto guiado: landing page acessível</h2>
+            <p>Construa uma página simples aplicando acessibilidade desde o início:</p>
+            <ol>
+                <li>Estruture landmarks semânticos e títulos em ordem.</li>
+                <li>Adicione skip link e menu operável por teclado.</li>
+                <li>Garanta contraste e foco visível em todos os elementos interativos.</li>
+                <li>Implemente painel de preferências com ARIA e anúncio de status.</li>
+                <li>Audite com teste manual e ferramenta automatizada.</li>
+            </ol>
+            <p class="espaco-topo"><strong>Meta:</strong> publicar uma página útil, inclusiva e validada com checklist de acessibilidade.</p>
+        </section>
+
+        <section id="exercicios" class="secao-cartao">
+            <h2>Exercícios de acessibilidade</h2>
+            <p>Pratique com desafios focados em inclusão real:</p>
+            <ol>
+                <li>Transforme um menu feito com <code>div</code> em navegação semântica acessível.</li>
+                <li>Adicione labels e mensagens de erro claras a um formulário.</li>
+                <li>Implemente foco visível em botões e links usando <code>:focus-visible</code>.</li>
+                <li>Crie um botão de abrir e fechar com <code>aria-expanded</code>.</li>
+                <li>Adicione uma região <code>aria-live</code> para feedback de sucesso.</li>
+                <li>Faça teste completo de teclado: Tab, Shift+Tab, Enter, Espaço e Escape.</li>
+            </ol>
+            <p class="espaco-topo"><strong>Autoavaliação:</strong> se qualquer pessoa consegue navegar sem mouse e entender os estados da interface, você está no caminho certo.</p>
         </section>
 
         <section id="recursos" class="secao-cartao">
-            <h2>Recursos</h2>
+            <h2>Recursos essenciais de acessibilidade</h2>
+            <p>Materiais de referência para desenvolvimento front-end acessível:</p>
             <ul>
                 <li><a href="https://developer.mozilla.org/pt-BR/" target="_blank" rel="noopener noreferrer">MDN Web Docs <span class="apenas-leitor-tela">(abre em nova aba)</span></a></li>
-                <li><a href="https://www.w3.org/" target="_blank" rel="noopener noreferrer">W3C <span class="apenas-leitor-tela">(abre em nova aba)</span></a></li>
-                <li><a href="https://www.w3schools.com/" target="_blank" rel="noopener noreferrer">W3Schools <span class="apenas-leitor-tela">(abre em nova aba)</span></a></li>
+                <li><a href="https://www.w3.org/WAI/standards-guidelines/wcag/" target="_blank" rel="noopener noreferrer">WCAG (W3C) <span class="apenas-leitor-tela">(abre em nova aba)</span></a></li>
+                <li><a href="https://www.w3.org/WAI/ARIA/apg/" target="_blank" rel="noopener noreferrer">WAI-ARIA Authoring Practices <span class="apenas-leitor-tela">(abre em nova aba)</span></a></li>
+                <li><a href="https://webaim.org/" target="_blank" rel="noopener noreferrer">WebAIM <span class="apenas-leitor-tela">(abre em nova aba)</span></a></li>
+                <li><a href="https://www.deque.com/axe/" target="_blank" rel="noopener noreferrer">axe DevTools <span class="apenas-leitor-tela">(abre em nova aba)</span></a></li>
+                <li><a href="https://wave.webaim.org/" target="_blank" rel="noopener noreferrer">WAVE Accessibility Tool <span class="apenas-leitor-tela">(abre em nova aba)</span></a></li>
             </ul>
         </section>
-    </main>
+        </main>
+    </div>
 
     <footer class="rodape">
         <div class="container-pagina">
