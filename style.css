@@ -445,7 +445,15 @@ html[data-motion="reduced"] *::after {
 
     .menu-navegacao {
         display: none;
+        position: fixed;
+        top: calc(var(--header-offset) + 0.5rem);
+        left: 1rem;
+        right: 1rem;
+        z-index: 35;
+        max-height: calc(100vh - var(--header-offset) - 1.25rem);
+        overflow: auto;
         padding: 0.8rem;
+        box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
     }
 
     .menu-navegacao.aberto {
