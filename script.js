@@ -152,18 +152,19 @@ function iniciarMarcacaoNavegacaoAtiva() {
     };
 
     const atualizarPorScroll = () => {
-        const referencia = window.scrollY + obterOffsetAtivacao();
         let idAtual = secoesObservaveis[0].id;
-
-        secoesObservaveis.forEach(({ id, elemento }) => {
-            if (referencia >= elemento.offsetTop) {
+    
+        for (const { id, elemento } of secoesObservaveis) {
+            const topo = elemento.getBoundingClientRect().top;
+    
+            if (topo <= 120) {
                 idAtual = id;
             }
-        });
-
+        }
+    
         atualizarLinkAtivo(idAtual);
     };
-
+    
     let scrollAgendado = false;
     window.addEventListener('scroll', () => {
         if (scrollAgendado) {
