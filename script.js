@@ -150,7 +150,14 @@ function iniciarMarcacaoNavegacaoAtiva() {
         const cabecalho = document.querySelector('.cabecalho');
         return (cabecalho ? cabecalho.offsetHeight : 0) + 24;
     };
+menuPrincipal.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+        fecharMenu();
 
+        const id = link.getAttribute('href').slice(1);
+        atualizarLinkAtivo(id);
+    });
+});
     const atualizarPorScroll = () => {
         let idAtual = secoesObservaveis[0].id;
     
@@ -208,7 +215,12 @@ botaoMenu.addEventListener('click', () => {
 });
 
 menuPrincipal.querySelectorAll('a').forEach((link) => {
-    link.addEventListener('click', fecharMenu);
+    link.addEventListener('click', () => {
+        fecharMenu();
+
+        const id = link.getAttribute('href').slice(1);
+        atualizarLinkAtivo(id);
+    });
 });
 
 iniciarMarcacaoNavegacaoAtiva();
